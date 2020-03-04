@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:htext="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:overScrollMode="ifContentScrolls">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/Text.Title"
+            android:id="@+id/textTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutNumbersInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/bg_input_box"
+            android:hint="@string/enter_numbers"
+            app:errorEnabled="true"
+            app:layout_constraintTop_toBottomOf="@id/textTitle">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputNumbers"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@null"
+                android:scrollbars="vertical"
+                android:textSize="16sp"
+                android:textColor="@color/textColor"
+                android:inputType="textMultiLine|numberDecimal" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerIntervals"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:clipToPadding="false"
+            app:layout_constraintTop_toBottomOf="@id/layoutNumbersInput"
+            tools:itemCount="3"/>
+
+        <com.hanks.htextview.evaporate.EvaporateTextView
+            style="@style/Text"
+            android:id="@+id/textResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="250dp"
+            android:padding="24dp"
+            android:gravity="center_horizontal"
+            android:textSize="24sp"
+            android:textColor="@color/headerTextColor"
+            htext:fontAsset="@font/lato_bold"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintTop_toBottomOf="@id/recyclerIntervals"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineButtonsStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="24dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineButtonsEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="24dp" />
+
+        <LinearLayout
+            android:id="@+id/layoutButtons"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/textResult"
+            app:layout_constraintStart_toEndOf="@id/guidelineButtonsStart"
+            app:layout_constraintEnd_toStartOf="@id/guidelineButtonsEnd">
+
+            <LinearLayout
+                android:id="@+id/layoutButtonsRow1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    style="@style/Button.Command"
+                    android:id="@+id/buttonAverage"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/average" />
+
+                <Button
+                    style="@style/Button.Command"
+                    android:id="@+id/buttonMode"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/mode" />
+
+                <Button
+                    style="@style/Button.Command"
+                    android:id="@+id/buttonMedian"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/median" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutButtonsRow2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    style="@style/Button.Command"
+                    android:id="@+id/buttonSampleSize"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/sample_size" />
+
+                <Button
+                    style="@style/Button.Command"
+                    android:id="@+id/buttonVariance"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/variance" />
+
+                <Button
+                    style="@style/Button.Command"
+                    android:id="@+id/buttonMeanSquareDeviation"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/mean_square_division" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutButtonsRow3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    style="@style/Button.Command"
+                    android:id="@+id/buttonCorrectedVariance"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/corrected_variance" />
+
+                <Button
+                    style="@style/Button.Command"
+                    android:id="@+id/buttonCorrectedMeanSquareDeviation"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/corrected_mean_square_division" />
+
+                <Button
+                    style="@style/Button.Command"
+                    android:id="@+id/buttonVariation"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/variation" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutButtonsRow4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    style="@style/Button.Command"
+                    android:id="@+id/buttonAsymmetry"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/asymmetry" />
+
+                <Button
+                    style="@style/Button.Command"
+                    android:id="@+id/buttonKurtosis"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/kurtosis" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutButtonsRow5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    style="@style/Button.Command"
+                    android:id="@+id/buttonStartingPoint"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/starting_point" />
+
+                <Button
+                    style="@style/Button.Command"
+                    android:id="@+id/buttonCentralPoint"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/central_point" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

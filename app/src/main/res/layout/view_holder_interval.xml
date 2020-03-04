@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingStart="8dp"
+    android:paddingEnd="8dp">
+
+    <TextView
+        android:id="@+id/textInterval"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="8dp"
+        android:textColor="@color/colorPrimary"
+        android:textSize="22sp"
+        android:fontFamily="@font/lato_bold"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/textAverage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="[14 ; 41]"/>
+
+    <TextView
+        android:id="@+id/textAverage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="8dp"
+        android:textColor="@color/textColor"
+        android:textSize="16sp"
+        android:fontFamily="@font/lato_regular"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintTop_toBottomOf="@id/textInterval"
+        app:layout_constraintBottom_toTopOf="@id/textFrequency"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="3.4"/>
+
+    <TextView
+        android:id="@+id/textFrequency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="8dp"
+        android:textColor="@color/textColor"
+        android:textSize="16sp"
+        android:fontFamily="@font/lato_regular"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintTop_toBottomOf="@id/textAverage"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="13"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

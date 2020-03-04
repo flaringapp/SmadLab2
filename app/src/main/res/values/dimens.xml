@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="roundedCorners">16dp</dimen>
+    <dimen name="roundedFull">200dp</dimen>
+
+    <dimen name="titleTextSize">42sp</dimen>
+    <dimen name="titleDialogTextSize">32sp</dimen>
+    <dimen name="messageDialogTextSize">18sp</dimen>
+    <dimen name="appTitleTextSize">64sp</dimen>
+    <dimen name="buttonTextSize">24sp</dimen>
+    <dimen name="buttonTextSizeSmall">18sp</dimen>
+</resources>
