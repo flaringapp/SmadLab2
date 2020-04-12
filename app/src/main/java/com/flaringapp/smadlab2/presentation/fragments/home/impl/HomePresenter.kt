@@ -62,7 +62,7 @@ class HomePresenter(
     private fun updateCurrentIntervals() {
         val numbers = numbers.trim().split(SPACE)
             .map { it.trim() }
-            .filter { it.isDecimal() && it != "." }
+            .filter { it.isNotEmpty() && it.isDecimal() && it != "." }
             .map { it.toDouble() }
             .toDoubleArray()
 
