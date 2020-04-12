@@ -22,7 +22,7 @@ val presentationModule = module {
     //Fragments
 
     scope(named<HomeFragment>()) {
-        scoped { HomePresenter(get(), get()) as HomeContract.PresenterContract }
+        scoped { HomePresenter(get()) as HomeContract.PresenterContract }
     }
 
     //Dialogs
