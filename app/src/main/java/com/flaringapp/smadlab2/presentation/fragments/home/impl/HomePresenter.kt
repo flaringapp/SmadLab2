@@ -8,6 +8,7 @@ import com.flaringapp.smadlab2.presentation.fragments.home.models.IntervalViewMo
 import com.flaringapp.smadlab2.presentation.mvp.BasePresenter
 import io.reactivex.disposables.Disposable
 import java.text.DecimalFormat
+import kotlin.math.roundToInt
 
 class HomePresenter(
     private val intervalSplitter: IntervalSplitter
@@ -19,7 +20,16 @@ class HomePresenter(
         private val boundFormat: DecimalFormat = DecimalFormat("0.00")
         private val decimalFormat: DecimalFormat = DecimalFormat("0.0000")
 
-        private const val DEFINED_INPUT = "0.65 0.79 0.57 0.34 0.25 0.00"
+        private const val INITIAL_INPUT =
+            "0.37 0.37 0.3 0.38 0.33 0.22 0.28 " +
+                    "0.37 0.37 0.3 0.38 0.33 0.22 0.28 " +
+                    "0.26 0.30 0.29 0.32 0.36 0.37 0.37 0.13"
+
+        private val DEFINED_INPUT = INITIAL_INPUT.split(' ')
+            .map { it.toDouble() }
+            .map { it + 0.13 }
+            .map { (it * 100).roundToInt() / 100f }
+            .joinToString(" ")
     }
 
     private var numbers: String = ""
@@ -100,8 +110,7 @@ class HomePresenter(
             if (startsWith('-')) {
                 if (length == 1) return false
                 substring(1)
-            }
-            else this
+            } else this
         }
             .find { !it.isDigit() && it != '.' } == null
     }
